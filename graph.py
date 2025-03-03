@@ -121,9 +121,8 @@ class UNET:
     def Drop(self, x):
         #do dropout when self.do_dropout is True
         if self.do_dropout:
-            # Convert x to a Tensor if it's not already
-            x = tf.convert_to_tensor(x) 
-            shape = x.shape.as_list()
+            # shape = x.shape.as_list()
+            shape = list(x.shape)
             noise_shape = [1]*(len(shape)-1)+[shape[-1]]
             x = Dropout(0.5, noise_shape=noise_shape)(x)
         else:
