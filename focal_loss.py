@@ -4,7 +4,8 @@ Define our custom loss function.
 # from keras import backend as K
 import tensorflow as tf
 # Added
-from tf.keras import backend as K
+# from tensorflow import keras
+from tensorflow.keras import backend as K
 
 
 def binary_focal_loss(alpha, gamma):
