@@ -311,10 +311,12 @@ class UNET_RESNET(UNET):
         
         x = Conv2D(1, 3, padding='same')(x)
         x = Activation('sigmoid', name='output_sigmoid')(x)
-        adam = Adam(lr = 1e-4)
+        # Changed 'lr' to 'learning_rate'
+        adam = Adam(learning_rate=1e-4) # adam = Adam(lr = 1e-4)
         model = Model(input=inputs, output=x)
         model.compile(optimizer=adam, loss=[focal_loss(alpha=0.9, gamma=0)], metrics=['accuracy'])
 
         self.model = model
+        
         return model
   
